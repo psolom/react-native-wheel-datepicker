@@ -199,7 +199,7 @@ export default class DatePicker extends PureComponent {
         );
         default: return null;
       }
-    })
+    });
   }
 
   get timePicker() {
@@ -245,7 +245,7 @@ export default class DatePicker extends PureComponent {
     const currentYear = this.newValue.year;
     const currentDay = this.newValue.date;
 
-    let dayRange = this.state.dayRange;
+    let { dayRange } = this.state;
     let dayNum = dayRange.length;
 
     if (oldMonth !== currentMonth || oldYear !== currentYear) {
