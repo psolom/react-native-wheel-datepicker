@@ -35,6 +35,7 @@ export default class DatePicker extends PureComponent {
     minimumDate: PropTypes.instanceOf(Date),
     mode: PropTypes.oneOf(['date', 'time', 'datetime']),
     onDateChange: PropTypes.func.isRequired,
+    use12Hours: PropTypes.bool,
     minuteInterval: PropTypes.oneOf(1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30),
     style: ViewPropTypes.style,
     textColor: ColorPropType,
@@ -48,6 +49,7 @@ export default class DatePicker extends PureComponent {
     mode: 'date',
     maximumDate: moment().add(10, 'years').toDate(),
     minimumDate: moment().add(-10, 'years').toDate(),
+    use12Hours: true,
     date: new Date(),
     style: null,
     textColor: '#333',
@@ -129,6 +131,10 @@ export default class DatePicker extends PureComponent {
   onMinuteChange = (minute) => {
     this.newValue.minute = minute;
     this.props.onDateChange(this.getValue());
+  };
+
+  on12HourPeriodChange = (period) => {
+
   };
 
   genDateRange(dayNum) {
@@ -235,6 +241,15 @@ export default class DatePicker extends PureComponent {
           selectedValue={this.state.date.getMinutes()}
           pickerData={minutes}
           onValueChange={this.onMinuteChange}
+        />
+      </View>,
+      this.props.use12Hours && <View key='period' style={styles.picker}>
+        <Picker
+          ref={(period) => { this.periodComponent = period; }}
+          {...propsStyles}
+          // selectedValue={this.state.date.getPeriods()}
+          pickerData={['AM', 'PM']}
+          onValueChange={this.onPeriodChange}
         />
       </View>,
     ];
