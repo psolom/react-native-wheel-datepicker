@@ -210,11 +210,14 @@ export default class DatePicker extends PureComponent {
 
   get timePicker() {
     const propsStyles = stylesFromProps(this.props);
-    const { minuteInterval } = this.props;
+    const { minuteInterval, use12Hours } = this.props;
 
     const [hours, minutes] = [[], []];
 
-    for (let i = 0; i <= 24; i += 1) {
+    const maxHours = use12Hours ? 12 : 23;
+    const minHours = use12Hours ? 1 : 0;
+
+    for (let i = minHours; i <= maxHours; i += 1) {
       hours.push(i);
     }
 
@@ -243,7 +246,7 @@ export default class DatePicker extends PureComponent {
           onValueChange={this.onMinuteChange}
         />
       </View>,
-      this.props.use12Hours && <View key='period' style={styles.picker}>
+      use12Hours && <View key='period' style={styles.picker}>
         <Picker
           ref={(period) => { this.periodComponent = period; }}
           {...propsStyles}
