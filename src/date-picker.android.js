@@ -133,7 +133,7 @@ export default class DatePicker extends PureComponent {
     this.props.onDateChange(this.getValue());
   };
 
-  on12HourPeriodChange = (period) => {
+  onPeriodChange = (period) => {
 
   };
 
