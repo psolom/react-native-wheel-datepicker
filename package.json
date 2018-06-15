@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/pinguinjkeke/react-native-wheel-datepicker#readme",
   "dependencies": {
-    "moment": "^2.22.2"
+    "moment": "^2.19.1"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.0",
