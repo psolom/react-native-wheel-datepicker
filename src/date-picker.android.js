@@ -223,7 +223,10 @@ export default class DatePicker extends PureComponent {
 
     for (let i = 0; i <= 59; i += 1) {
       if (!minuteInterval || i % minuteInterval === 0) {
-        minutes.push(i);
+        minutes.push({
+          value: i,
+          label: i > 9 ? `${i}` : `0${i}`,
+        });
       }
     }
 
