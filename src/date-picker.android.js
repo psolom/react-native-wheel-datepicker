@@ -101,6 +101,10 @@ export default class DatePicker extends PureComponent {
     ['year', 'month', 'date', 'hour', 'minute'].forEach((s) => { this.newValue[s] = mdate.get(s); });
   }
 
+  get meridiem() {
+    return this.newValue.hour >= 12 ? 'PM' : 'AM';
+  }
+
   onYearChange = (year) => {
     const oldYear = this.newValue.year;
 
@@ -124,7 +128,16 @@ export default class DatePicker extends PureComponent {
   };
 
   onHourChange = (hour) => {
-    this.newValue.hour = hour;
+    if (this.props.use12Hours && hour < 12 && this.meridiem === 'PM') {
+      // +12hrs for PM times (except 12)
+      this.newValue.hour = hour + 12;
+    } else if (this.props.use12Hours && hour === 12 && this.meridiem === 'AM') {
+      // 12 AM -> 0:00
+      this.newValue.hour = 0;
+    } else {
+      this.newValue.hour = hour;
+    }
+
     this.props.onDateChange(this.getValue());
   };
 
@@ -134,7 +147,14 @@ export default class DatePicker extends PureComponent {
   };
 
   onPeriodChange = (period) => {
-
+    if (this.meridiem !== period) {
+      let newHour = (this.newValue.hour + 12) % 24;
+      if (period === 'AM') {
+        newHour %= 12;
+      }
+      this.newValue.hour = newHour;
+      this.props.onDateChange(this.getValue());
+    }
   };
 
   genDateRange(dayNum) {
@@ -216,6 +236,8 @@ export default class DatePicker extends PureComponent {
 
     const maxHours = use12Hours ? 12 : 23;
     const minHours = use12Hours ? 1 : 0;
+    let initialHours = this.state.date.getHours();
+    if (use12Hours && initialHours > 12) initialHours -= 12;
 
     for (let i = minHours; i <= maxHours; i += 1) {
       hours.push(i);
@@ -235,7 +257,7 @@ export default class DatePicker extends PureComponent {
         <Picker
           ref={(hour) => { this.hourComponent = hour; }}
           {...propsStyles}
-          selectedValue={this.state.date.getHours()}
+          selectedValue={initialHours}
           pickerData={hours}
           onValueChange={this.onHourChange}
         />
@@ -253,7 +275,7 @@ export default class DatePicker extends PureComponent {
         <Picker
           ref={(period) => { this.periodComponent = period; }}
           {...propsStyles}
-          // selectedValue={this.state.date.getPeriods()}
+          selectedValue={moment(this.state.date).format('A')}
           pickerData={['AM', 'PM']}
           onValueChange={this.onPeriodChange}
         />
