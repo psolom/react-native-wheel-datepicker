@@ -71,6 +71,17 @@ export default class App extends Component {
 
             <View style={styles.separator} />
             <Text style={styles.text__info}>
+              Timepicker with AM/PM{"\n"}
+              current datetime: {this.state.datetime && this.state.datetime.toJSON()}
+            </Text>
+            <DatePicker
+              mode="time"
+              use12Hours
+              onDateChange={datetime => this.setState({ datetime })}
+            />
+
+            <View style={styles.separator} />
+            <Text style={styles.text__info}>
               Picker with custom styles{"\n"}
               current selectedValue: {this.state.value}
             </Text>
