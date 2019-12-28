@@ -1,4 +1,4 @@
-# react-native-wheel-datepicker
+# @davidgovea/react-native-wheel-datepicker
 
 [![NPM](https://img.shields.io/npm/v/@davidgovea/react-native-wheel-datepicker.svg)](https://www.npmjs.com/package/@davidgovea/react-native-wheel-datepicker)
 [![Build Status](https://img.shields.io/circleci/project/github/davidgovea/react-native-wheel-datepicker.svg)](https://circleci.com/gh/davidgovea/react-native-wheel-datepicker)
@@ -16,6 +16,8 @@ This is the fourth fork of repository, since it seems that @pinguinjkeke is no l
 * Maintenance / updates for RN & platform changes
 * Implement some missing features on Android (12-hour AM/PM mode, minute intervals)
 * Typescript definitions
+* Add tests
+* Semver adherance
 
 ## Introduction
 Cross platform Picker component for React-native.
@@ -29,23 +31,80 @@ The android component is based on [wheel-picker](https://github.com/AigeStudio/W
 
 ![](screenshots/android.png)
 
-## How to use
-
-Run command
-
-For apps using RN 0.32 or higher, please run
+## Installation
 
 ```
 npm i @davidgovea/react-native-wheel-datepicker --save
 ```
 
-Configration:
+Configration (for RN below 0.60):
 
 ```
-react-native link react-native-wheel-datepicker
+react-native link @davidgovea/react-native-wheel-datepicker
 ```
 
-## Ingegration with CustomDatePickerIOS
+## &lt;Picker&gt; Component
+
+```jsx
+import { Picker } from '@davidgovea/react-native-wheel-datepicker';
+
+<Picker
+  style={{ flex: 1 }}
+  selectedValue={3}
+  pickerData={[1, 2, 3, 4, 5, 6]}
+  onValueChange={value => { console.log(value); }}
+/>
+```
+
+### Picker props
+
+| Property      | Type                 | Default                    | Description                                         |
+|---------------|----------------------|----------------------------|-----------------------------------------------------|
+| pickerData    | any[]                | -                          | **Required:** an array of data to display in picker |
+| onValueChange | (value: any) => void | -                          | **Required:** selected value changed callback       |
+| selectedValue | any?                 | First item of `pickerData` | Set/control the selected value                      |
+| textColor     | string               | '#333'                     | (Android only) Color of spinner text                |
+| textSize      | number               | 26                         | (Android only) Spinner text size                    |
+| itemSpace     | number               | 20                         | (Android only) Spacing between spinner items        |
+| itemStyle     | style                | null                       | (iOS only) passed into `PickerIOS` for item styling |
+| style         | style                | null                       | Style applied to the picker element                 |
+
+---
+
+## &lt;DatePicker&gt; Component
+
+```jsx
+import { DatePicker } from '@davidgovea/react-native-wheel-datepicker';
+
+<DatePicker
+  mode="datetime"
+  use12Hours
+  minuteInterval={15}
+  onDateChange={(date) => { console.log(date); }}
+/>
+
+```
+
+### DatePicker props
+| Property       | Type                                          | Default                           | Description                                                                                                                              |
+|----------------|-----------------------------------------------|-----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| onDateChange   | (value: Date) => void                         | -                                 | **Required:** selected date changed callback                                                                                             |
+| mode           | enum('date', 'time', 'datetime')              | 'date'                            | Show date, time, or both in picker                                                                                                       |
+| date           | Date                                          | `new Date()` (now)                | Provide/control the selected date value                                                                                                  |
+| maximumDate    | Date                                          | 10 years in future                | Restricts the range of possible date/time values.                                                                                        |
+| minimumDate    | Date                                          | 10 years in past                  | Restricts the range of possible date/time values.                                                                                        |
+| minuteInterval | enum(1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30)    | 1                                 | The interval at which minutes can be selected.                                                                                           |
+| use12Hours     | boolean                                       | false                             | (Android only) Use 12-hour AM/PM for hour selection. On iOS, `DatePickerIOS` automatically uses i18n information to enable 12-hour mode. |
+| order          | custom string                                 | 'D-M-Y'                           | (Android only) Ordering of date fields. Use "D" for day, "M" for month, "Y" for year, separated by dashes ("-")                          |
+| labelUnit      | { year: string, month: string, date: string } | { year: '', month: '', date: '' } | (Android only) Suffix labels for year, month, date values                                                                                |
+| textColor      | string                                        | '#333'                            | (Android only) Color of spinner text                                                                                                     |
+| textSize       | number                                        | 26                                | (Android only) Spinner text size                                                                                                         |
+| itemSpace      | number                                        | 20                                | (Android only) Spacing between spinner items                                                                                             |
+| style          | style                                         | null                              | Style applied to the datepicker element                                                                                                  |
+
+## [DEPRECATED] Integration with CustomDatePickerIOS
+
+> CustomDatePickerIOS can apparently cause Appstore approval issues. This library will be removing iOS functionality in a future release. Users are advised to use the builtin Pickers on iOS.
 
 By default, package provides default DatePickerIOS on the iOS side to simplify usage on both platforms.
 
@@ -71,7 +130,7 @@ registerCustomDatePickerIOS(CustomDatePickerIOS);
 ```
 Then you can use textColored components for both platforms inside render function!
 ```jsx
-import { DatePicker } from 'react-native-wheel-datepicker';
+import { DatePicker } from '@davidgovea/react-native-wheel-datepicker';
 
 // ...
 render() {
@@ -82,23 +141,4 @@ render() {
     />
   )
 }
-```
-
-## Example code
-
-```jsx
-import { Picker, DatePicker } from 'react-native-wheel-datepicker';
-
-// use DatePicker
-<DatePicker
-  mode="date"
-/>
-
-// use Picker
-<Picker
-  style={{ flex: 1 }}
-  selectedValue={1}
-  pickerData={[1, 2, 3, 4, 5, 6]}
-  onValueChange={value => this.setState({ value })}
-/>
 ```
