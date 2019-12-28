@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.232](https://github.com/davidgovea/react-native-wheel-datepicker/compare/v0.0.231...v0.0.232) (2019-12-28)
+
+
+### Bug Fixes
+
+* use "ViewProps.style" for the `style` type definitions ([#12](https://github.com/davidgovea/react-native-wheel-datepicker/issues/12)) ([73ae46a](https://github.com/davidgovea/react-native-wheel-datepicker/commit/73ae46a431babf66dc018b52ee92509499928154))
+
 ### [0.0.231](https://github.com/davidgovea/react-native-wheel-datepicker/compare/v0.0.230...v0.0.231) (2019-12-08)
 
 
