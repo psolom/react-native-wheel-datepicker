@@ -1,5 +1,5 @@
 rootProject.name = 'Demo'
-include ':@davidgovea/react-native-wheel-datepicker'
-project(':@davidgovea/react-native-wheel-datepicker').projectDir = new File(rootProject.projectDir, '../node_modules/@davidgovea/react-native-wheel-datepicker/android')
+include ':@davidgovea_react-native-wheel-datepicker'
+project(':@davidgovea_react-native-wheel-datepicker').projectDir = new File(rootProject.projectDir, '../node_modules/@davidgovea/react-native-wheel-datepicker/android')
 
 include ':app'
