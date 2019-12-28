@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   scroll: {
-    flex: 1,
+    minHeight: '100%',
   },
   text__info: {
     backgroundColor: 'green',
