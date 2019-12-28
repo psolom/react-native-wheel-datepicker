@@ -3,7 +3,6 @@
 exports[`android Picker snapshot 1`] = `
 <WheelCurvedPicker
   itemSpace={20}
-  itemStyle={null}
   onValueChange={[Function]}
   selectedValue={1}
   style={

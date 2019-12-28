@@ -3,7 +3,6 @@
 exports[`ios Picker snapshot 1`] = `
 <PickerIOS
   itemSpace={20}
-  itemStyle={null}
   onValueChange={[Function]}
   selectedValue={1}
   style={
