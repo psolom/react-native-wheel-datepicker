@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import { Picker, registerCustomDatePickerIOS } from '@davidgovea/react-native-wheel-datepicker';
-import CustomDatePickerIOS from 'react-native-custom-datepicker-ios';
-
-const DatePicker = registerCustomDatePickerIOS(CustomDatePickerIOS);
+import { Picker, DatePicker } from '@davidgovea/react-native-wheel-datepicker';
 
 const styles = StyleSheet.create({
   container: {

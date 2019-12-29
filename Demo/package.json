@@ -10,8 +10,7 @@
 		"@davidgovea/react-native-wheel-datepicker": "~0.0.230",
 		"prop-types": "^15.6.0",
 		"react": "16.8.3",
-		"react-native": "~0.59.0",
-		"react-native-custom-datepicker-ios": "^0.0.2"
+		"react-native": "~0.59.0"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.7.7",
