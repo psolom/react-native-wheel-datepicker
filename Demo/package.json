@@ -7,7 +7,7 @@
 		"test": "jest"
 	},
 	"dependencies": {
-		"@davidgovea/react-native-wheel-datepicker": "../",
+		"@davidgovea/react-native-wheel-datepicker": "~0.0.230",
 		"prop-types": "^15.6.0",
 		"react": "16.8.3",
 		"react-native": "~0.59.0",
