@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/davidgovea/react-native-wheel-datepicker/compare/v1.0.0...v1.0.1) (2019-12-29)
+
+
+### Bug Fixes
+
+* omit uneeded files from npm archive ([425a0e3](https://github.com/davidgovea/react-native-wheel-datepicker/commit/425a0e39c166446ef4e292713cb3287f9f137a67))
+
 ## [1.0.0](https://github.com/davidgovea/react-native-wheel-datepicker/compare/v0.0.232...v1.0.0) (2019-12-29)
 
 
