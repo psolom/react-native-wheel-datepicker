@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/davidgovea/react-native-wheel-datepicker/compare/v0.0.232...v1.0.0) (2019-12-29)
+
+
+### Features
+
+* Add 12-hour timepicker example to Demo app ([6f40500](https://github.com/davidgovea/react-native-wheel-datepicker/commit/6f405009003706e5bbcacbb10233a56ec43eeb03))
+* Document props & usage in README ([6fb2fac](https://github.com/davidgovea/react-native-wheel-datepicker/commit/6fb2facaf284dde32f7dc7d715d5c4fcf0968293))
+* remove deprecated custom ios picker extension from Demo app ([05a7f1d](https://github.com/davidgovea/react-native-wheel-datepicker/commit/05a7f1d5218f3a5ec7554ada1695c757bf006800))
+* Switch Demo app from yarn to npm ([cda526f](https://github.com/davidgovea/react-native-wheel-datepicker/commit/cda526f872fa4cf0fd527ebee013fea3c75d763b))
+
+
+### Bug Fixes
+
+* Remove duplicate package import in android Demo app ([74e8a77](https://github.com/davidgovea/react-native-wheel-datepicker/commit/74e8a77304241d638ec5e476cdf477f0289e6bc1))
+* Remove unneeded moment peerDependency. Moment is a full-on dependency already ([f883338](https://github.com/davidgovea/react-native-wheel-datepicker/commit/f8833384c71b4b0ffbdd5efad384aa6c57501533))
+* Scrollview height bug - android was glitching due to flex:1 limiting the height ([834f8ad](https://github.com/davidgovea/react-native-wheel-datepicker/commit/834f8ad6b10b86203092438a2a21fb9420bcc48d))
+* Update package names in Demo app ([d6129dd](https://github.com/davidgovea/react-native-wheel-datepicker/commit/d6129ddae2f86167edbbf02473620088a8bf265e))
+
 ### [0.0.232](https://github.com/davidgovea/react-native-wheel-datepicker/compare/v0.0.231...v0.0.232) (2019-12-28)
 
 
