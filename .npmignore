@@ -6,3 +6,9 @@ screenshots
 .eslintrc
 .gitignore
 README.md
+coverage
+__snapshots__
+build
+.project
+.circleci
+*.config.js
