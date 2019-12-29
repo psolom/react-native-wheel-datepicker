@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import { Picker, registerCustomDatePickerIOS } from '@davidgovea/react-native-wheel-datepicker';
-import CustomDatePickerIOS from 'react-native-custom-datepicker-ios';
-
-const DatePicker = registerCustomDatePickerIOS(CustomDatePickerIOS);
+import { Picker, DatePicker } from '@davidgovea/react-native-wheel-datepicker';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
   scroll: {
-    flex: 1,
+    minHeight: '100%',
   },
   text__info: {
     backgroundColor: 'green',
@@ -67,6 +64,17 @@ export default class App extends Component {
               mode="datetime"
               onDateChange={datetime => this.setState({ datetime })}
               labelUnit={{ year: 'Y', month: 'M', date: 'D' }}
+            />
+
+            <View style={styles.separator} />
+            <Text style={styles.text__info}>
+              Timepicker with AM/PM{"\n"}
+              current datetime: {this.state.datetime && this.state.datetime.toJSON()}
+            </Text>
+            <DatePicker
+              mode="time"
+              use12Hours
+              onDateChange={datetime => this.setState({ datetime })}
             />
 
             <View style={styles.separator} />

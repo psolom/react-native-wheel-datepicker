@@ -47,8 +47,7 @@
     "react-test-renderer": "~16.9.0"
   },
   "peerDependencies": {
-    "moment": ">=2.0.0",
     "prop-types": "*",
-    "react-native": ">=0.45.0"
+    "react-native": ">=0.54.0"
   }
 }
