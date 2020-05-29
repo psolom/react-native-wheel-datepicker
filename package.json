@@ -12,6 +12,10 @@
     "type": "git",
     "url": "git+https://github.com/davidgovea/react-native-wheel-datepicker.git"
   },
+  "files": [
+    "src",
+    "android"
+  ],
   "keywords": [
     "react-native",
     "datepicker",
@@ -28,6 +32,7 @@
     "moment": "^2.19.1"
   },
   "devDependencies": {
+    "@react-native-community/datetimepicker": "^2.4.0",
     "@react-native-community/picker": "^1.6.1",
     "codecov": "^3.6.1",
     "enzyme": "^3.10.0",
@@ -48,6 +53,7 @@
     "react-test-renderer": "~16.9.0"
   },
   "peerDependencies": {
+    "@react-native-community/datetimepicker": ">=1.0.0",
     "@react-native-community/picker": ">=1.0.0",
     "prop-types": "*",
     "react-native": ">=0.54.0"

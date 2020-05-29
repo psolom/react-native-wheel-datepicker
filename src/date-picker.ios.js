@@ -1,6 +1,17 @@
 import React, { PureComponent } from 'react';
-import { DatePickerIOS } from 'react-native';
 import PropTypes from 'prop-types';
+
+let CommunityDatePicker;
+let DatePickerIOS;
+
+try {
+  CommunityDatePicker = require('@react-native-community/datetimepicker');
+} catch (_e) {}
+
+if (!CommunityDatePicker) {
+  // Deprecated
+  DatePickerIOS = require('react-native').DatePickerIOS;
+}
 
 export default class DatePicker extends PureComponent {
   static propTypes = {
@@ -35,6 +46,17 @@ export default class DatePicker extends PureComponent {
   }
 
   render() {
+    if (!!CommunityDatePicker) {
+      return (
+        <CommunityDatePicker
+          {...this.props}
+          onChange={(_event, date) => {
+            this.onDateChange(date);
+          }}
+          value={this.state.date}
+        />
+      );
+    }
     return (
       <DatePickerIOS
         {...this.props}
