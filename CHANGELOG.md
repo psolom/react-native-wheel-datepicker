@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.2](https://github.com/davidgovea/react-native-wheel-datepicker/compare/v1.0.1...v1.0.2) (2020-05-29)
+
+
+### Bug Fixes
+
+* Address deprecated gradle config ([c8e7b56](https://github.com/davidgovea/react-native-wheel-datepicker/commit/c8e7b567d72778d3c164abb8c9d39c89c15121c7)), closes [#18](https://github.com/davidgovea/react-native-wheel-datepicker/issues/18)
+
 ### [1.0.1](https://github.com/davidgovea/react-native-wheel-datepicker/compare/v1.0.0...v1.0.1) (2019-12-29)
 
 
