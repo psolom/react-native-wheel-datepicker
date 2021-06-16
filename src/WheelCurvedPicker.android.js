@@ -38,12 +38,8 @@ class WheelCurvedPicker extends PureComponent {
 
   onValueChange = ({ nativeEvent: { data } }) => this.props.onValueChange(data);
 
-  UNSAFE_componentWillMount() {
-    this.setState(stateFromProps(this.props));
-  }
-
-  UNSAFE_componentWillReceiveProps(nextProps) {
-    this.setState(stateFromProps(nextProps));
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return stateFromProps(nextProps);
   }
 
   render() {

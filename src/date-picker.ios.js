@@ -37,12 +37,11 @@ export default class DatePicker extends PureComponent {
     this.props.onDateChange(date);
   };
 
-  UNSAFE_componentWillMount() {
-    this.setState({ date: this.props.date });
-  }
-
-  UNSAFE_componentWillReceiveProps({ date }) {
-    this.setState({ date });
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (prevState.date !== nextProps.date) {
+      return { date: nextProps.date };
+    }
+    return null;
   }
 
   render() {
