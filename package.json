@@ -1,6 +1,6 @@
 {
-  "name": "@davidgovea/react-native-wheel-datepicker",
-  "version": "1.0.2",
+  "name": "@psolom/react-native-wheel-datepicker",
+  "version": "2.0.0",
   "description": "React native cross platform iOS-style picker and datepicker.",
   "main": "src/index.js",
   "types": "src/index.d.ts",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davidgovea/react-native-wheel-datepicker.git"
+    "url": "git+https://github.com/psolom/react-native-wheel-datepicker.git"
   },
   "files": [
     "src",
@@ -25,9 +25,9 @@
   "author": "David Govea <govea.d@gmail.com>",
   "license": "WTFPL",
   "bugs": {
-    "url": "https://github.com/davidgovea/react-native-wheel-datepicker/issues"
+    "url": "https://github.com/psolom/react-native-wheel-datepicker/issues"
   },
-  "homepage": "https://github.com/davidgovea/react-native-wheel-datepicker#readme",
+  "homepage": "https://github.com/psolom/react-native-wheel-datepicker#readme",
   "dependencies": {
     "moment": "^2.19.1"
   },
